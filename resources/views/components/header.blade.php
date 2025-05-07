@@ -2,8 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
       <a class="navbar-brand fw-bold d-flex align-items-center" href="/">
-        <img src="{{ url('images/logo.png') }}" alt="Logo">
-        <span class="ms-2">Sinowayedu</span>
+        <img src="{{ url('images/logo.png') }}" alt="Logo" style="height: 50px">
       </a>      
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -12,42 +11,29 @@
       <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{url('/')}}">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/why-us')}}">Why Us</a>
-          </li>
-          @if(auth()->check())
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/programs')}}">Programs</a>
-          </li>
-          @else
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/membership-application')}}">Programs</a>
-          </li>
-          @endif
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/universities')}}">Universities</a>
+            <a class="nav-link" href="{{url('/what-we-do')}}">WHAT WE DO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/news')}}">News</a>
+            <a class="nav-link" href="{{url('/why-us')}}">IMPACT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('about')}}">About</a>
+            <a class="nav-link" href="{{url('/news')}}">NEWSFLASH</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('contact-us')}}">Contact</a>
+            <a class="nav-link" href="{{url('about')}}">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('contact-us')}}">CONTACT</a>
           </li>
         </ul>
       </div>
 
       <!-- Right-end Button -->
       <div class="d-none d-lg-flex">
-        @guest
-            <a href="{{ url('login') }}" class="btn primary-button">Login / Register</a>
-        @else
-            <a href="{{ url('programs') }}" class="btn primary-button">All Programs</a>
-        @endguest
+            <a href="{{ url('login') }}" class="btn primary-button">GET INVOLVED</a>
     </div>
     
     

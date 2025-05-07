@@ -10,7 +10,7 @@
 
                 <div class="card border-0 shadow-sm rounded-4">
                     @if($post->featured_image)
-                        <img src="{{ asset('storage/' . $post->featured_image) }}" class="card-img-top rounded-top-4" alt="{{ $post->title }}">
+                        <img src="{{ asset('storage/' . $post->featured_image) }}" class="card-img-top" alt="{{ $post->title }}" style="height: 300px">
                     @endif
 
                     <div class="card-body">
@@ -19,7 +19,6 @@
 
                         <div class="card-text">
                             {!!($post->content) !!}
-                            {{-- or just use {!! $post->body !!} if content is already sanitized/HTML --}}
                         </div>
 
                         <div class="mt-4">

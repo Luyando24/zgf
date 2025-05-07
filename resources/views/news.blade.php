@@ -19,7 +19,7 @@
                     <div class="col">
                         <div class="card shadow-sm border-0 rounded-4 h-100">
                             @if($post->featured_image)
-                                <img src="{{ asset('storage/' . $post->featured_image) }}" class="card-img-top rounded-top-4" alt="{{ $post->title }}">
+                                <img src="{{ asset('storage/' . $post->featured_image) }}" class="card-img-top" alt="{{ $post->title }}">
                             @endif
                             <div class="card-body">
                                 <h5 class="card-title">{{ $post->title }}</h5>
@@ -39,4 +39,5 @@
         </div>
     </div>
 </section>
+<x-newsletter />
 @endsection

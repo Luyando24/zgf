@@ -28,6 +28,12 @@ return [
         'key' => env('RESEND_KEY'),
     ],
 
+    'facebook' => [
+    'page_id' => env('FACEBOOK_PAGE_ID'),
+    'access_token' => env('FACEBOOK_PAGE_TOKEN'),
+   ],
+
+
     'slack' => [
         'notifications' => [
             'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),

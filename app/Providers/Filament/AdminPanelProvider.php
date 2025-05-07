@@ -28,10 +28,11 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->brandLogo(asset('images/logo.png'))
+            ->favicon(asset('images/favicon.png'))
             ->colors([
                 'gray' => Color::Gray,
                 'info' => Color::Blue,
-                'primary' => Color::Teal,
+                'primary' => Color::Green,
                 'success' => Color::Emerald,
                 'warning' => Color::Orange,
             ])

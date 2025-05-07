@@ -4,95 +4,82 @@
 
 @section('content')
 <section class="container my-5">
-    <h2 class="mb-4 text-center heading">About Us</h2>
 
-    <!-- Mission Section -->
-    <div class="row mb-5">
+    <!-- Page Heading -->
+    <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold heading">About ZGF</h2>
+        <p class="text-muted mx-auto" style="max-width: 700px;">
+            Empowering civil society. Strengthening governance. Building a just Zambia.
+        </p>
+    </div>
+
+    <!-- Intro Section -->
+    <div class="row align-items-center mb-5">
         <div class="col-lg-6 mb-4">
-            <h3 class="mb-3">Our Mission</h3>
-            <p class="text-muted">
-                Our mission is to provide accessible educational opportunities and guidance to international students, helping them navigate their study abroad journey with ease.
-            </p>
+            <img src="{{ asset('images/about2.jpg') }}" class="img-fluid rounded-4 shadow-sm" alt="ZGF Work">
         </div>
         <div class="col-lg-6">
-            <img src="{{ asset('images/mission.webp') }}" class="img-fluid rounded-4 shadow-sm" alt="Our Mission">
+            <p class="text-muted fs-5">
+                The Zambian Governance Foundation (ZGF) supports local civil society organizations to deliver impactful solutions within their communities. We believe in local leadership, citizen participation, and development that is inclusive and sustainable.
+            </p>
         </div>
     </div>
 
-    <!-- Vision Section -->
-    <div class="row mb-5">
-        <div class="col-lg-6 mb-4">
-            <h3 class="mb-3">Our Vision</h3>
-            <p class="text-muted">
-                Our vision is to become the leading platform for international students by partnering with universities worldwide, creating a diverse educational community.
-            </p>
+    <!-- Mission & Vision Section -->
+    <div class="row text-center mb-5">
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded-4 shadow-sm bg-white h-100">
+                <h4 class="mb-3">Our Mission</h4>
+                <p class="text-muted">
+                    To empower civil society organizations with funding, knowledge, and platforms that amplify citizen voices and foster democratic governance in Zambia.
+                </p>
+            </div>
         </div>
-        <div class="col-lg-6">
-            <img src="{{ asset('images/vision.jpg') }}" class="img-fluid rounded-4 shadow-sm" alt="Our Vision">
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border rounded-4 shadow-sm bg-white h-100">
+                <h4 class="mb-3">Our Vision</h4>
+                <p class="text-muted">
+                    A Zambia where all citizens are actively engaged in shaping a fair, just, and equitable society.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Values as Cards -->
+    <div class="mb-5">
+        <h4 class="mb-4 text-center">Our Core Values</h4>
+        <div class="row g-4">
+            @php
+                $values = [
+                    ['title' => 'Participation', 'desc' => 'We promote inclusive civic engagement and amplify marginalized voices.'],
+                    ['title' => 'Partnership', 'desc' => 'We value strong, respectful collaborations with local CSOs and stakeholders.'],
+                    ['title' => 'Transparency', 'desc' => 'We uphold accountability and integrity in all our operations.'],
+                    ['title' => 'Innovation', 'desc' => 'We embrace new approaches that advance sustainable development goals.'],
+                ];
+            @endphp
+
+            @foreach ($values as $value)
+                <div class="col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 text-center bg-white shadow-lg position-relative" style="box-shadow: 0 8px 20px rgba(62, 162, 164, 0.25);">
+                        <h5 class="mb-2">{{ $value['title'] }}</h5>
+                        <p class="text-muted small">{{ $value['desc'] }}</p>
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: -1; filter: blur(30px); background-color: rgba(62, 162, 164, 0.2); border-radius: 1rem;"></div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 
     <!-- History Section -->
     <div class="row mb-5">
         <div class="col-12">
-            <h3 class="mb-3">Our History</h3>
-            <p class="text-muted">
-                Founded in 2015, we started with a small group of passionate individuals dedicated to making study abroad opportunities accessible to students globally. Over the years, we've grown into a trusted partner for thousands of students and universities worldwide.
+            <h4 class="mb-3">Our Journey</h4>
+            <p class="text-muted fs-5">
+                Since our founding in 2009, ZGF has evolved into a key enabler for Zambia’s civil society. Through capacity development, grant-making, and learning platforms, we’ve partnered with over 300 organizations to advance rights-based, citizen-led development across the country.
             </p>
         </div>
     </div>
 
-    <!-- Values Section -->
-    <div class="row mb-5">
-        <div class="col-12">
-            <h3 class="mb-3">Our Values</h3>
-            <ul class="list-unstyled">
-                <li><strong>Integrity:</strong> We believe in being transparent, honest, and ethical in everything we do.</li>
-                <li><strong>Innovation:</strong> We constantly seek new ways to improve the study abroad experience for students.</li>
-                <li><strong>Collaboration:</strong> We work hand-in-hand with universities and partners to provide the best opportunities.</li>
-                <li><strong>Excellence:</strong> We strive to provide the highest standard of service to students and partners alike.</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Team Section -->
-    <div class="row mb-5">
-        <div class="col-12 text-center">
-            <h3 class="mb-4">Meet Our Team</h3>
-            <div class="row g-4">
-                <!-- Example Team Member 1 -->
-                <div class="col-md-4">
-                    <div class="card shadow-sm rounded-4 border-0">
-                        <img src="{{ asset('images/steven.jpg') }}" class="card-img-top" alt="Team Member 1" style="object-fit: cover; height: 400px;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Steven</h5>
-                            <p class="text-muted">CEO & Founder</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Example Team Member 2 -->
-                <div class="col-md-4">
-                    <div class="card shadow-sm rounded-4 border-0">
-                        <img src="{{ asset('images/team_member_2.jpg') }}" class="card-img-top rounded-circle" alt="Team Member 2" style="object-fit: cover; height: 250px;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Jane Smith</h5>
-                            <p class="text-muted">Chief Operations Officer</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Example Team Member 3 -->
-                <div class="col-md-4">
-                    <div class="card shadow-sm rounded-4 border-0">
-                        <img src="{{ asset('images/team_member_3.jpg') }}" class="card-img-top rounded-circle" alt="Team Member 3" style="object-fit: cover; height: 250px;">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Mark Lee</h5>
-                            <p class="text-muted">Marketing Director</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </section>
+<x-newsletter />
 @endsection

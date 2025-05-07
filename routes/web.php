@@ -10,10 +10,11 @@ use App\Http\Controllers\UniversityDetails;
 use App\Http\Controllers\UniversityDetailsController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\WhyController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\FacebookPostController;
 use App\Models\Hero;
 use App\Models\University;
 use App\Models\Degree;
@@ -47,7 +48,7 @@ Route::get('/cities', [CityController::class, 'cities'])->name('cities');
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 // Why us page
-Route::get('/why-us', [WhyController::class, 'why'])->name('why');
+Route::get('/what-we-do', [HomeController::class, 'WhatWeDo'])->name('WhatWeDo');
 
 // Contact page
 Route::get('/contact-us', [ContactController::class, 'contact'])->name('contact');
@@ -70,5 +71,13 @@ Route::get('/news', [PostController::class, 'newsPage'])->name('news');
 // Display post details
 Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
 
-// Dashboard (auth protected)
+// Display career page
+Route::get('/careers', [PostController::class, 'careerPage'])->name('careers');
+// Display career details
+Route::get('/career/{career}', [PostController::class, 'careerDetails'])->name('job.show');
+//submit job application
+Route::post('/job/{career:slug}/apply', [JobApplicationController::class, 'store'])->name('job.apply');
+Route::get('/facebook-posts', [FacebookPostController::class, 'index']);
+
+
 
