@@ -13,7 +13,7 @@ class FacebookPostController extends Controller
 
         try {
             $response = Http::withOptions([
-                'verify' => true, // Use trusted CA certificates
+                'verify' => true,
                 'timeout' => 30,
                 'connect_timeout' => 30,
                 'curl' => [
@@ -25,18 +25,11 @@ class FacebookPostController extends Controller
                 'fields' => 'message,full_picture,created_time,permalink_url'
             ]);
 
-            // Decode JSON response
             $data = $response->json();
 
-            // For debugging: see what the API returns
-            // Remove this after confirming it works
-            
-
-            // Extract posts or default to empty array
             $posts = $data['data'] ?? [];
-            dd($data);
+           
         } catch (\Exception $e) {
-            // Log any exception
             Log::error('Facebook API Error: ' . $e->getMessage());
             $posts = [];
         }

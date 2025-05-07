@@ -77,6 +77,8 @@ Route::get('/careers', [PostController::class, 'careerPage'])->name('careers');
 Route::get('/career/{career}', [PostController::class, 'careerDetails'])->name('job.show');
 //submit job application
 Route::post('/job/{career:slug}/apply', [JobApplicationController::class, 'store'])->name('job.apply');
+
+// Facebook posts
 Route::get('/facebook-posts', [FacebookPostController::class, 'index']);
 
 
