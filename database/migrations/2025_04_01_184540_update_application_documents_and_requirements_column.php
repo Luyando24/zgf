@@ -12,6 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('programs', function (Blueprint $table) {
+            // Cast the column manually
+            DB::statement('ALTER TABLE programs ALTER COLUMN application_documents TYPE json USING application_documents::json');
+            DB::statement('ALTER TABLE programs ALTER COLUMN requirements TYPE json USING requirements::json');
+            
+           
             $table->json('application_documents')->change();
             $table->json('requirements')->change();
         });

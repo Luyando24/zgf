@@ -52,6 +52,7 @@ return array(
     'App\\Http\\Controllers\\CityController' => $baseDir . '/app/Http/Controllers/CityController.php',
     'App\\Http\\Controllers\\ContactController' => $baseDir . '/app/Http/Controllers/ContactController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\FacebookPostController' => $baseDir . '/app/Http/Controllers/FacebookPostController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\JobApplicationController' => $baseDir . '/app/Http/Controllers/JobApplicationController.php',
     'App\\Http\\Controllers\\MembershipController' => $baseDir . '/app/Http/Controllers/MembershipController.php',

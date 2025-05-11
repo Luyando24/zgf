@@ -771,6 +771,7 @@ class ComposerStaticInit95217a7e265e104ce75f2f349b352b95
         'App\\Http\\Controllers\\CityController' => __DIR__ . '/../..' . '/app/Http/Controllers/CityController.php',
         'App\\Http\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\FacebookPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/FacebookPostController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\JobApplicationController' => __DIR__ . '/../..' . '/app/Http/Controllers/JobApplicationController.php',
         'App\\Http\\Controllers\\MembershipController' => __DIR__ . '/../..' . '/app/Http/Controllers/MembershipController.php',
