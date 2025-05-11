@@ -10,8 +10,8 @@
       <h1 class="main-heading" style="color:#fff">Supporting Zambian communities to lead their own development</h1>
       <p class="sub-heading mt-4" style="color:#fff">We help Zambian civil society and community-based organisations (CSOs and CBOs) become more effective through funding and targeted capacity development support</p>
       <div class="mt-3">
-        <button class="primary-button mt-4">Our Impact</button>
-        <button class="outlined-button mt-4">Get Involved</button>
+        <a href="{{ route('impact') }}" class="primary-button mt-4" style="text-decoration: none">Our Impact</a>
+        <a href="{{ route('get-involved') }}" class="outlined-button mt-4" style="text-decoration: none">Get Involved</a>
       </div>
     </div>
 </div>

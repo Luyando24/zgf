@@ -1,4 +1,4 @@
-<footer class="pt-5 pb-4" style="background-color: #DCFFC5;">
+<footer class="pt-5 pb-4" style="background-color: #d1d8cc;">
     <div class="container text-md-start">
         <div class="row">
             <!-- About ZGF -->

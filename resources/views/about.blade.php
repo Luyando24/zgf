@@ -81,5 +81,24 @@
     </div>
 
 </section>
+
+<!-- Call to Action Section -->
+<section class="py-5 bg-primary-custom text-white text-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-4">Ready to Make a Difference?</h2>
+                <p class="lead mb-4">Join us in our mission to strengthen civil society and promote good governance across Zambia. Together, we can create lasting positive change.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="{{ route('partnership-request') }}" class="btn btn-light btn-lg px-4">Partner With Us</a>
+                    <a href="{{ route('volunteer') }}" class="btn btn-outline-light btn-lg px-4">Volunteer</a>
+                    <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <x-newsletter />
 @endsection
+

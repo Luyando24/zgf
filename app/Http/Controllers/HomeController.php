@@ -29,4 +29,14 @@ class HomeController extends Controller
     {
         return view('what-we-do');
     }
+
+    public function impact()
+    {
+        return view('impact');
+    }
+
+    public function join()
+    {
+        return view('get-involved');
+    }
 }

@@ -15,6 +15,9 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\FacebookPostController;
+use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PartnerRequestController;
+use App\Http\Controllers\VolunteerController;
 use App\Models\Hero;
 use App\Models\University;
 use App\Models\Degree;
@@ -81,5 +84,23 @@ Route::post('/job/{career:slug}/apply', [JobApplicationController::class, 'store
 // Facebook posts
 Route::get('/facebook-posts', [FacebookPostController::class, 'index']);
 
+// Newsletter subscription
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 
+// Impact page
+Route::get('impact', [HomeController::class, 'impact'])->name('impact');
 
+//Join page
+Route::get('/get-involved', [HomeController::class, 'join'])->name('get-involved');
+
+//partnship request page
+Route::get('/partnership-request', [PartnerRequestController::class, 'index'])->name('partnership-request');
+Route::post('/partnership-request', [PartnerRequestController::class, 'submitPartnerRequest'])->name('partnership.submit');
+
+//Volunteer page
+Route::get('/volunteer', [VolunteerController::class, 'index'])->name('volunteer');
+Route::post('/volunteer.store', [VolunteerController::class, 'submitVolunteerRequest'])->name('volunteer.store');
+Route::get('/volunteer/thank-you', [VolunteerController::class, 'thankYou'])->name('volunteer.thank-you');
+
+//privacy policy page
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');

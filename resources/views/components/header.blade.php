@@ -17,7 +17,7 @@
             <a class="nav-link" href="{{url('/what-we-do')}}">WHAT WE DO</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/why-us')}}">IMPACT</a>
+            <a class="nav-link" href="{{url('/impact')}}">IMPACT</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('/news')}}">NEWSFLASH</a>
@@ -33,7 +33,7 @@
 
       <!-- Right-end Button -->
       <div class="d-none d-lg-flex">
-            <a href="{{ url('login') }}" class="btn primary-button">GET INVOLVED</a>
+            <a href="{{ url('get-involved') }}" class="btn primary-button">GET INVOLVED</a>
     </div>
     
     

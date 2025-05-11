@@ -4,7 +4,7 @@
 
     <!-- Left + Center Links (merge for inline layout) -->
     <div class="d-flex flex-wrap flex-md-nowrap gap-3 align-items-center">
-      <a href="{{url('cities')}}" class="text-white text-decoration-none small">Our impact</a>
+      <a href="{{url('impact')}}" class="text-white text-decoration-none small">Our impact</a>
       <a href="{{ url('/careers') }}" class="text-white text-decoration-none fw-semibold small">Careers</a>
     </div>
 
