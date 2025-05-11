@@ -26,7 +26,6 @@ class FacebookPostController extends Controller
                 'access_token' => $accessToken,
                 'fields' => 'message,full_picture,created_time,permalink_url'
             ]);
-           
             $data = $response->json();
             $posts = $data['data'] ?? [];
            
