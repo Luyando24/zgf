@@ -31,6 +31,7 @@ return [
     'facebook' => [
     'page_id' => env('FACEBOOK_PAGE_ID'),
     'access_token' => env('FACEBOOK_PAGE_TOKEN'),
+    'base_uri' => env('FACEBOOK_PAGE_BASE_URI'),
    ],
 
 
