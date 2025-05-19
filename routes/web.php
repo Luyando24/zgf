@@ -18,6 +18,10 @@ use App\Http\Controllers\FacebookPostController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PartnerRequestController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\CommunityInitiativeController;
+use App\Http\Controllers\AbuseReportController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\ResourceController;
 use App\Models\Hero;
 use App\Models\University;
 use App\Models\Degree;
@@ -53,6 +57,9 @@ Route::get('/about', [AboutController::class, 'about'])->name('about');
 // Why us page
 Route::get('/what-we-do', [HomeController::class, 'WhatWeDo'])->name('WhatWeDo');
 
+// How We Do It page
+Route::get('/how-we-do-it', [HomeController::class, 'howWeDoIt'])->name('howWeDoIt');
+
 // Contact page
 Route::get('/contact-us', [ContactController::class, 'contact'])->name('contact');
 
@@ -84,8 +91,10 @@ Route::post('/job/{career:slug}/apply', [JobApplicationController::class, 'store
 // Facebook posts
 Route::get('/facebook-posts', [FacebookPostController::class, 'index']);
 
-// Newsletter subscription
+// Newsletter routes
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::get('/newsletter/unsubscribe/{token}', [NewsletterController::class, 'unsubscribe'])->name('newsletter.unsubscribe');
+Route::post('/newsletter/confirm-unsubscribe', [NewsletterController::class, 'confirmUnsubscribe'])->name('newsletter.confirm-unsubscribe');
 
 // Impact page
 Route::get('impact', [HomeController::class, 'impact'])->name('impact');
@@ -104,3 +113,23 @@ Route::get('/volunteer/thank-you', [VolunteerController::class, 'thankYou'])->na
 
 //privacy policy page
 Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy-policy');
+
+// Community Initiatives routes
+Route::get('/initiatives', [CommunityInitiativeController::class, 'index'])->name('initiatives.index');
+Route::get('/initiatives/{slug}', [CommunityInitiativeController::class, 'show'])->name('initiatives.show');
+
+// Report Abuse routes
+Route::get('/report', [AbuseReportController::class, 'create'])->name('report');
+Route::post('/report', [AbuseReportController::class, 'store'])->name('report.store');
+Route::get('/report/thank-you', [AbuseReportController::class, 'thankYou'])->name('reports.thank-you');
+
+// Donation Routes
+Route::get('/donate', [App\Http\Controllers\DonationController::class, 'index'])->name('donate');
+Route::get('/donation/callback', [App\Http\Controllers\DonationController::class, 'handleCallback'])->name('donation.callback');
+Route::get('/donation/thank-you', [App\Http\Controllers\DonationController::class, 'thankYou'])->name('donation.thank-you');
+Route::resource('resources', ResourceController::class);
+Route::get('/resources/{resource:slug}', [ResourceController::class, 'show'])->name('resources.show');
+Route::get('/resources/{resource:slug}/download', [ResourceController::class, 'download'])->name('resources.download');
+
+
+

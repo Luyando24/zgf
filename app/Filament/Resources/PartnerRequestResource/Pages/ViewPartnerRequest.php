@@ -13,6 +13,8 @@ use Filament\Support\Enums\FontWeight;
 use Filament\Infolists\Components\TextEntry\TextEntrySize;
 use Filament\Notifications\Notification;
 use Filament\Forms;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PartnerRequestStatusUpdated;
 
 class ViewPartnerRequest extends ViewRecord
 {
@@ -38,9 +40,17 @@ class ViewPartnerRequest extends ViewRecord
                         ->required(),
                 ])
                 ->action(function (array $data): void {
+                    $oldStatus = $this->record->status;
+                    
                     $this->record->update([
                         'status' => $data['status'],
                     ]);
+                    
+                    // Send email notification if status has changed
+                    if ($oldStatus !== $data['status'] && $this->record->email) {
+                        Mail::to($this->record->email)
+                            ->send(new PartnerRequestStatusUpdated($this->record));
+                    }
                     
                     Notification::make()
                         ->title('Status updated successfully')

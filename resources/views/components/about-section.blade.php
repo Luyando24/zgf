@@ -19,8 +19,14 @@
                     A Zambian society where local communities realise their rights and shape their own development
                 </p>
 
-                <a href="{{ url('about') }}" class="btn primary-button mt-3">Join Our Network</a>
+                <div class="about-section-buttons mt-3">
+                    <a href="{{ url('about') }}" class="btn primary-button">Read more</a>
+                    <a href="{{ route('get-involved') }}" class="btn about-secondary-button d-md-none">Get involved</a>
+                    <a href="{{ url('how-we-do-it') }}" class="btn about-secondary-button d-md-none">How we do it</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+

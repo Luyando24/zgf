@@ -3,7 +3,10 @@
         <div class="row justify-content-center mb-5">
             <div class="col-lg-8 text-center">
                 <h2 class="display-5 fw-bold mb-3">Get Involved</h2>
-                <p class="lead">Join us in strengthening civil society and promoting good governance across Zambia. There are many ways you can contribute to our mission.</p>
+                <p class="lead mb-4">Join us in strengthening civil society and promoting good governance across Zambia. There are many ways you can contribute to our mission.</p>
+                <div class="d-inline-block position-relative">
+                    <div class="accent-line"></div>
+                </div>
             </div>
         </div>
         
@@ -18,7 +21,9 @@
                             </div>
                             <h4 class="card-title fw-bold mb-3">Partner With Us</h4>
                             <p class="card-text text-muted">Collaborate with us to support community-led development and civil society growth across Zambia.</p>
-                            <div class="mt-3 primary-text">Learn more <i class="bi bi-arrow-right"></i></div>
+                            <div class="mt-3">
+                                <span class="btn-outline-custom">Learn more <i class="bi bi-arrow-right ms-2"></i></span>
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -109,31 +114,107 @@
 
 <style>
 .icon-circle {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    background-color: #61A534;
-    color: white;
+    background-color: rgba(97, 165, 52, 0.1);
+    color: #61A534;
+    transition: all 0.3s ease;
 }
 
 .primary-text {
     color: #61A534;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .hover-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
 .hover-card:hover .icon-circle {
-    background-color: #538F2C;
+    background-color: #61A534;
+    color: white;
+    transform: scale(1.1);
+}
+
+.hover-card:hover .primary-text {
+    color: #538F2C;
+    padding-left: 10px;
+}
+
+.accent-line {
+    width: 80px;
+    height: 4px;
+    background: #61A534;
+    margin: 0 auto;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.card-title {
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+.btn-outline-custom {
+    color: #61A534;
+    border: 2px solid #61A534;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.hover-card:hover .btn-outline-custom {
+    background-color: #61A534;
+    color: white;
+}
+
+.btn-outline-custom i {
+    transition: transform 0.3s ease;
+}
+
+.hover-card:hover .btn-outline-custom i {
+    transform: translateX(5px);
 }
 </style>

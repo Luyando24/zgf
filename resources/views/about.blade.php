@@ -80,12 +80,96 @@
         </div>
     </div>
 
-</section>
+    <!-- Team Section -->
+    <div class="mb-5">
+        <h3 class="mb-4 text-center">Our Team</h3>
+        <p class="text-center text-muted mx-auto mb-5" style="max-width: 700px;">
+            Our dedicated team of professionals brings diverse expertise and a shared commitment to strengthening civil society in Zambia.
+        </p>
+        
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <!-- Team Member 1 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                    <div class="position-relative">
+                        <img src="{{ asset('images/team1.jpg') }}" class="card-img-top rounded-top-4" alt="Team Member" onerror="this.src='{{ asset('images/placeholder-person.jpg') }}'">
+                        <div class="team-social position-absolute w-100 d-flex justify-content-center gap-2" style="bottom: 10px;">
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">John Mwanza</h5>
+                        <p class="text-muted small mb-2">Program Director</p>
+                        <p class="card-text small">Overseeing program implementation and ensuring effective delivery of ZGF initiatives.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 2 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                    <div class="position-relative">
+                        <img src="{{ asset('images/team1.jpg') }}" class="card-img-top rounded-top-4" alt="Team Member" onerror="this.src='{{ asset('images/placeholder-person.jpg') }}'">
+                        <div class="team-social position-absolute w-100 d-flex justify-content-center gap-2" style="bottom: 10px;">
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Sarah Banda</h5>
+                        <p class="text-muted small mb-2">Operations Manager</p>
+                        <p class="card-text small">Managing day-to-day operations and organizational effectiveness.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 3 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                    <div class="position-relative">
+                        <img src="{{ asset('images/team1.jpg') }}" class="card-img-top rounded-top-4" alt="Team Member" onerror="this.src='{{ asset('images/placeholder-person.jpg') }}'">
+                        <div class="team-social position-absolute w-100 d-flex justify-content-center gap-2" style="bottom: 10px;">
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">David Tembo</h5>
+                        <p class="text-muted small mb-2">Partnerships Lead</p>
+                        <p class="card-text small">Building and maintaining strategic relationships with stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Team Member 4 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
+                    <div class="position-relative">
+                        <img src="{{ asset('images/team1.jpg') }}" class="card-img-top rounded-top-4" alt="Team Member" onerror="this.src='{{ asset('images/placeholder-person.jpg') }}'">
+                        <div class="team-social position-absolute w-100 d-flex justify-content-center gap-2" style="bottom: 10px;">
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Grace Mutale</h5>
+                        <p class="text-muted small mb-2">Program Officer</p>
+                        <p class="card-text small">Coordinating capacity building and grant management initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- Call to Action Section -->
-<section class="py-5 bg-primary-custom text-white text-center">
-    <div class="container">
-        <div class="row justify-content-center">
+    <!-- Call to Action Section -->
+<section class="py-5 bg-primary-custom text-white text-center mx-0">
+    <div class="container-fluid px-0">
+        <div class="row justify-content-center mx-0">
             <div class="col-lg-8">
                 <h2 class="fw-bold mb-4">Ready to Make a Difference?</h2>
                 <p class="lead mb-4">Join us in our mission to strengthen civil society and promote good governance across Zambia. Together, we can create lasting positive change.</p>
@@ -99,6 +183,6 @@
     </div>
 </section>
 
-<x-newsletter />
+<x-newsletter class="mx-0" />
 @endsection
 

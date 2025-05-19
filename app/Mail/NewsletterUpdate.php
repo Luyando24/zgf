@@ -5,8 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 
 class NewsletterUpdate extends Mailable
 {
@@ -14,34 +12,30 @@ class NewsletterUpdate extends Mailable
 
     public string $content;
     public string $subjectText;
+    public string $unsubscribeLink;
 
-    public function __construct(string $subjectText, string $content)
+    /**
+     * Create a new message instance.
+     */
+    public function __construct(string $subjectText, string $content, string $email)
     {
         $this->subjectText = $subjectText;
         $this->content = $content;
+        
+        // Create a simple unsubscribe link without using route() function
+        $token = base64_encode($email);
+        $this->unsubscribeLink = url("/newsletter/unsubscribe/{$token}");
     }
 
-    public function envelope(): Envelope
+    /**
+     * Build the message.
+     */
+    public function build()
     {
-        return new Envelope(
-            subject: $this->subjectText,
-        );
+        return $this->subject($this->subjectText)
+                    ->view('emails.newsletter');
     }
-
-    public function content(): Content
-{
-    return new Content(
-        html: 'emails.newsletter',
-        text: 'emails.newsletter_plain',
-        with: [
-            'content' => $this->content,
-            'subjectText' => $this->subjectText,
-        ],
-    );
 }
 
-    public function attachments(): array
-    {
-        return [];
-    }
-}
+
+

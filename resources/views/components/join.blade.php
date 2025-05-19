@@ -74,7 +74,7 @@
             
             <!-- Card 5 -->
             <div class="col">
-                <a href="{{ url('sponsor') }}" class="text-decoration-none">
+                <a href="{{ route('initiatives.index') }}" class="text-decoration-none">
                     <div class="card h-100 border-0 shadow-sm hover-card">
                         <div class="card-body text-center p-4">
                             <div class="icon-circle mb-3">

@@ -8,9 +8,9 @@
       <a href="{{ url('/careers') }}" class="text-white text-decoration-none fw-semibold small">Careers</a>
     </div>
 
-    <!-- Right: Email (desktop only) + Logout -->
+    <!-- Right: Email (visible on all devices) + Logout -->
     <div class="d-flex align-items-center gap-3 text-end mt-2 mt-md-0 ms-auto">
-      <a href="mailto:info@sinowayedu.com" class="text-white text-decoration-none small d-none d-md-inline">info@zgf.org.zm</a>
+      <a href="mailto:info@sinowayedu.com" class="text-white text-decoration-none small">info@zgf.org.zm</a>
     </div>
 
   </div>

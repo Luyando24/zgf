@@ -12,6 +12,7 @@
       <div class="mt-3">
         <a href="{{ route('impact') }}" class="primary-button mt-4" style="text-decoration: none">Our Impact</a>
         <a href="{{ route('get-involved') }}" class="outlined-button mt-4" style="text-decoration: none">Get Involved</a>
+        <a href="{{ url('initiatives') }}" class="outlined-button mt-4" style="text-decoration: none">Support an Initiative</a>
       </div>
     </div>
 </div>

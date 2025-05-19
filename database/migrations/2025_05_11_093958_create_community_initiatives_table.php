@@ -17,13 +17,13 @@ return new class extends Migration
             $table->string('category');
             $table->text('summary');
             $table->text('description');
-            $table->string('video_url');
+            $table->string('video_url')->nullable();
             $table->string('cover_image');
             $table->string('location');
             $table->string('slug');
             $table->date('start_date');
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->date('end_date');
+            $table->string('created_by')->comment('Person or organization that created this initiative');
             $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
             $table->timestamps();
         });
@@ -37,3 +37,4 @@ return new class extends Migration
         Schema::dropIfExists('community_initiatives');
     }
 };
+

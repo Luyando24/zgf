@@ -18,7 +18,7 @@ class PartnerRequestResource extends Resource
 {
     protected static ?string $model = PartnerRequest::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-arrow-path';
 
     public static function form(Form $form): Form
     {

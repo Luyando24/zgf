@@ -28,6 +28,7 @@ class FacebookPostController extends Controller
             ]);
             $data = $response->json();
             $posts = $data['data'] ?? [];
+            
            
         } catch (\Exception $e) {
             Log::error('Facebook API Error: ' . $e->getMessage());

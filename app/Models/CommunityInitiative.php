@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class CommunityInitiative extends Model
 {
@@ -11,17 +12,46 @@ class CommunityInitiative extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'category',
         'summary',
         'description',
-        'video_url',
         'cover_image',
+        'video_url',
         'location',
-        'slug',
         'start_date',
         'end_date',
         'status',
         'created_by',
     ];
+
+    protected $casts = [
+        'start_date' => 'date',
+        'end_date' => 'date',
+    ];
+
+    /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($initiative) {
+            // Generate slug from title if not provided
+            if (empty($initiative->slug)) {
+                $initiative->slug = Str::slug($initiative->title);
+            }
+        });
+    }
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
+
 

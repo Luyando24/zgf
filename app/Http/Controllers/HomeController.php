@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Hero;
 use App\Models\University;
 use App\Models\Degree;
-use App\Models\City;
+use App\Models\CommunityInitiative;
 use App\Models\Post;
+use App\Models\Resource;
 
 class HomeController extends Controller
 {
@@ -20,9 +21,10 @@ class HomeController extends Controller
         //Fetch all degrees from the database
         $studyOptions = Degree::all();
         //Fetch first 6 cities from the database
-        $cities = City::orderBy('id', 'desc')->take(3)->get();
+        $initiatives = CommunityInitiative::orderBy('id', 'desc')->take(3)->get();
         $degrees = Degree::all();
-        return view('home', compact('heroes', 'featuredPosts', 'studyOptions', 'cities', 'degrees'));
+        $resources = Resource::orderBy('id', 'desc')->take(3)->get();
+        return view('home', compact('heroes', 'featuredPosts', 'studyOptions', 'initiatives', 'degrees', 'resources'));
     }
 
     public function WhatWeDo()
@@ -39,4 +41,10 @@ class HomeController extends Controller
     {
         return view('get-involved');
     }
+
+    public function howWeDoIt()
+    {
+        return view('how-we-do-it');
+    }
 }
+

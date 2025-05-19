@@ -110,3 +110,5 @@ class ViewJobApplication extends ViewRecord
     }
 }
 
+
+

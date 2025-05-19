@@ -18,7 +18,7 @@ class HeroResource extends Resource
     protected static ?string $model = Hero::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
-    protected static ?string $navigationGroup = 'Content Management';
+    protected static ?string $navigationGroup = 'Marketing';
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationLabel = 'Home Slider';
     protected static ?string $label = 'Home Slider Images';

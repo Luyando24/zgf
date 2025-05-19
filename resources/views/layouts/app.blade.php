@@ -8,7 +8,8 @@
     <!-- Local Bootstrap CSS -->
 <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
-
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
 <!-- Wow js cdn -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -21,8 +22,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     
-    <!-- Your custom CSS (optional) -->
-    @vite('resources/css/app.css')
+    <!-- custom CSS -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="roboto-condensed-400 text-dark">
 
@@ -35,6 +36,38 @@
     </main>
 
     @include('components.footer')
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav d-md-none">
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col mobile-nav-item {{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}">
+                        <i class="bi bi-house-door"></i>
+                        <span>Home</span>
+                    </a>
+                </div>
+                <div class="col mobile-nav-item {{ request()->is('about*') ? 'active' : '' }}">
+                    <a href="{{ route('about') }}">
+                        <i class="bi bi-info-circle"></i>
+                        <span>About</span>
+                    </a>
+                </div>
+                <div class="col mobile-nav-item {{ request()->is('programs*') ? 'active' : '' }}">
+                    <a href="{{ route('get-involved') }}">
+                        <i class="bi bi-grid"></i>
+                        <span>Get Involved</span>
+                    </a>
+                </div>
+                <div class="col mobile-nav-item {{ request()->is('contact*') ? 'active' : '' }}">
+                    <a href="{{ route('contact') }}">
+                        <i class="bi bi-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <!-- Local Bootstrap Bundle JS -->
 <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
@@ -49,4 +82,6 @@
     
 </body>
 </html>
+
+
 
