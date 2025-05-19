@@ -1,39 +1,87 @@
 <section style="background-color: #61A534; color: white; padding: 60px 0;">
     <div class="container">
-      <h2 class="mb-5 heading text-center">Get Involved</h2>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        
-        <div class="col">
-          <h5 class="fw-bold">1. Partner With Us</h5>
-          <a href="partnership-request" class="text-white text-decoration-underline">Collaborate with us to support community-led development and civil society growth across Zambia</a>
+        <h2 class="mb-5 heading text-center">Get Involved</h2>
+        <div class="row row-cols-2 row-cols-md-3 g-4">
+            
+            <div class="col">
+                <div class="card h-100 bg-transparent border-0 text-center">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-people-fill fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold">Partner</h5>
+                        <p class="mb-3">Support community-led development across Zambia</p>
+                        <a href="partnership-request" class="btn rounded-pill px-4" style="background-color: #61A534; border: 2px solid white; color: white; transition: all 0.3s;" onmouseover="this.style.backgroundColor='white'; this.style.color='#61A534';" onmouseout="this.style.backgroundColor='#61A534'; this.style.color='white';">Join Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 bg-transparent border-0 text-center">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-heart-fill fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold">Donate</h5>
+                        <p class="mb-3">Contribute to empower local communities</p>
+                        <a href="donate" class="btn rounded-pill px-4" style="background-color: #61A534; border: 2px solid white; color: white; transition: all 0.3s;" onmouseover="this.style.backgroundColor='white'; this.style.color='#61A534';" onmouseout="this.style.backgroundColor='#61A534'; this.style.color='white';">Support</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 bg-transparent border-0 text-center">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-globe fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold">Network</h5>
+                        <p class="mb-3">Connect with like-minded organizations</p>
+                        <a href="partnership-request" class="btn rounded-pill px-4" style="background-color: #61A534; border: 2px solid white; color: white; transition: all 0.3s;" onmouseover="this.style.backgroundColor='white'; this.style.color='#61A534';" onmouseout="this.style.backgroundColor='#61A534'; this.style.color='white';">Connect</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 bg-transparent border-0 text-center">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-hand-thumbs-up-fill fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold">Volunteer</h5>
+                        <p class="mb-3">Share your skills to support communities</p>
+                        <a href="volunteer" class="btn rounded-pill px-4" style="background-color: #61A534; border: 2px solid white; color: white; transition: all 0.3s;" onmouseover="this.style.backgroundColor='white'; this.style.color='#61A534';" onmouseout="this.style.backgroundColor='#61A534'; this.style.color='white';">Join</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 bg-transparent border-0 text-center">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-star-fill fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold">Sponsor</h5>
+                        <p class="mb-3">Fund community upliftment projects</p>
+                        <a href="initiatives" class="btn rounded-pill px-4" style="background-color: #61A534; border: 2px solid white; color: white; transition: all 0.3s;" onmouseover="this.style.backgroundColor='white'; this.style.color='#61A534';" onmouseout="this.style.backgroundColor='#61A534'; this.style.color='white';">Fund</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 bg-transparent border-0 text-center">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <i class="bi bi-shield-fill fs-1"></i>
+                        </div>
+                        <h5 class="fw-bold">Report</h5>
+                        <p class="mb-3">Help shine a light on injustice</p>
+                        <a href="report" class="btn rounded-pill px-4" style="background-color: #61A534; border: 2px solid white; color: white; transition: all 0.3s;" onmouseover="this.style.backgroundColor='white'; this.style.color='#61A534';" onmouseout="this.style.backgroundColor='#61A534'; this.style.color='white';">Submit</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-  
-        <div class="col">
-          <h5 class="fw-bold">2. Make a Donation</h5>
-          <a href="donate" class="text-white text-decoration-underline">Support our work by contributing to initiatives that empower local communities and strengthen their capacities</a>
-        </div>
-  
-        <div class="col">
-          <h5 class="fw-bold">3. Join Our Network</h5>
-          <a href="partnership-request" class="text-white text-decoration-underline">Connect with like-minded organizations and individuals working to build stronger, self-sustaining communities</a>
-        </div>
-  
-        <div class="col">
-          <h5 class="fw-bold">4. Volunteer</h5>
-          <a href="volunteer" class="text-white text-decoration-underline">Share your skills and time to support our community initiatives and capacity-building efforts</a>
-        </div>
-  
-        <div class="col">
-          <h5 class="fw-bold">5. Sponsor a Community Initiative</h5>
-          <a href="initiatives" class="text-white text-decoration-underline">Directly fund specific projects that uplift rural and peri-urban communities through sustainable solutions</a>
-        </div>
-  
-        <div class="col">
-          <h5 class="fw-bold">6. Report Abuse or Raise Awareness</h5>
-          <a href="report" class="text-white text-decoration-underline">Help shine a light on injustice—submit reports of abuse or collaborate on awareness campaigns that drive accountability and change</a>
-        </div>
-  
-      </div>
     </div>
-  </section>
+</section>
   
