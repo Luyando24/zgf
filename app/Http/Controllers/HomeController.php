@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Hero;
-use App\Models\University;
-use App\Models\Degree;
+use App\Models\TeamMember;
 use App\Models\CommunityInitiative;
 use App\Models\Post;
 use App\Models\Resource;
@@ -18,13 +17,10 @@ class HomeController extends Controller
         $heroes = Hero::orderBy('id', 'desc')->take(3)->get();
         // Fetch the first 3 university images from the database
         $featuredPosts = Post::orderBy('id', 'desc')->take(3)->get();
-        //Fetch all degrees from the database
-        $studyOptions = Degree::all();
-        //Fetch first 6 cities from the database
+
         $initiatives = CommunityInitiative::orderBy('id', 'desc')->take(3)->get();
-        $degrees = Degree::all();
         $resources = Resource::orderBy('id', 'desc')->take(3)->get();
-        return view('home', compact('heroes', 'featuredPosts', 'studyOptions', 'initiatives', 'degrees', 'resources'));
+        return view('home', compact('heroes', 'featuredPosts', 'initiatives', 'resources'));
     }
 
     public function WhatWeDo()
@@ -43,8 +39,9 @@ class HomeController extends Controller
     }
 
     public function howWeDoIt()
-    {
-        return view('how-we-do-it');
+    {   
+        $teamMembers = TeamMember::take(6)->get();
+        return view('how-we-do-it', compact('teamMembers'));
     }
 }
 

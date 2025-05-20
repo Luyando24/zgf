@@ -152,90 +152,43 @@
 </section>
 
 <!-- Team Section -->
-<div class="mb-5">
+<section class="container py-5">
     <h3 class="mb-4 text-center">Our Team</h3>
     <p class="text-center text-muted mx-auto mb-5" style="max-width: 700px;">
         Our dedicated team of professionals brings diverse expertise and a shared commitment to strengthening civil society in Zambia.
     </p>
     
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-        <!-- Team Member 1 -->
+        @foreach($teamMembers as $member)
         <div class="col">
             <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
                 <div class="position-relative">
-                    <img src="{{ asset('images/team1.jpg') }}" class="card-img-top rounded-top-4" alt="Team Member" onerror="this.src='{{ asset('images/placeholder-person.jpg') }}'">
+                    <img src="{{ asset('storage/' . $member->image) }}" 
+                         class="card-img-top rounded-top-4" 
+                         alt="{{ $member->name }}"
+                         style="object-fit: cover; height: 250px;">
                     <div class="team-social position-absolute w-100 d-flex justify-content-center gap-2" style="bottom: 10px;">
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-envelope-fill"></i></a>
+                        @if($member->facebook)
+                        <a href="{{ $member->facebook }}" class="btn btn-sm btn-light rounded-circle" target="_blank"><i class="bi bi-facebook"></i></a>
+                        @endif
+                        @if($member->twitter)
+                        <a href="{{ $member->twitter }}" class="btn btn-sm btn-light rounded-circle" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                        @endif
+                        @if($member->linkedin)
+                        <a href="{{ $member->linkedin }}" class="btn btn-sm btn-light rounded-circle" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        @endif
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title mb-1">John Mwanza</h5>
-                    <p class="text-muted small mb-2">Program Director</p>
-                    <p class="card-text small">Overseeing program implementation and ensuring effective delivery of ZGF initiatives.</p>
+                    <h5 class="card-title mb-1">{{ $member->name }}</h5>
+                    <p class="text-muted small mb-2">{{ $member->position }}</p>
+                    <p class="card-text small">{{ $member->description }}</p>
                 </div>
             </div>
         </div>
-        
-        <!-- Team Member 2 -->
-        <div class="col">
-            <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
-                <div class="position-relative">
-                    <img src="{{ asset('images/team1.jpg') }}" class="card-img-top rounded-top-4" alt="Team Member" onerror="this.src='{{ asset('images/placeholder-person.jpg') }}'">
-                    <div class="team-social position-absolute w-100 d-flex justify-content-center gap-2" style="bottom: 10px;">
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-envelope-fill"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title mb-1">Sarah Banda</h5>
-                    <p class="text-muted small mb-2">Operations Manager</p>
-                    <p class="card-text small">Managing day-to-day operations and organizational effectiveness.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Team Member 3 -->
-        <div class="col">
-            <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
-                <div class="position-relative">
-                    <img src="{{ asset('images/team1.jpg') }}" class="card-img-top rounded-top-4" alt="Team Member" onerror="this.src='{{ asset('images/placeholder-person.jpg') }}'">
-                    <div class="team-social position-absolute w-100 d-flex justify-content-center gap-2" style="bottom: 10px;">
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-envelope-fill"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title mb-1">David Tembo</h5>
-                    <p class="text-muted small mb-2">Partnerships Lead</p>
-                    <p class="card-text small">Building and maintaining strategic relationships with stakeholders.</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Team Member 4 -->
-        <div class="col">
-            <div class="card border-0 shadow-sm rounded-4 h-100 text-center">
-                <div class="position-relative">
-                    <img src="{{ asset('images/team1.jpg') }}" class="card-img-top rounded-top-4" alt="Team Member" onerror="this.src='{{ asset('images/placeholder-person.jpg') }}'">
-                    <div class="team-social position-absolute w-100 d-flex justify-content-center gap-2" style="bottom: 10px;">
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="bi bi-envelope-fill"></i></a>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title mb-1">Grace Mutale</h5>
-                    <p class="text-muted small mb-2">Program Officer</p>
-                    <p class="card-text small">Coordinating capacity building and grant management initiatives.</p>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
-</div>
+</section>
 
 <x-newsletter />
 @endsection

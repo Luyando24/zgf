@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-<x-hero :heroes="$heroes" :degrees="$degrees" />
+<x-hero :heroes="$heroes"/>
 <x-stats />
 <x-about-section />
 <x-news :featuredPosts="$featuredPosts" />
