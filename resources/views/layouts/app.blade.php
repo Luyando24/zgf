@@ -26,11 +26,15 @@
 </head>
 <body class="roboto-condensed-400 text-dark">
 
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-white focus:z-50">
+        Skip to main content
+    </a>
     
     @include('components.top-bar')
     @include('components.header')
 
-    <main class="py-4">
+    <main id="main-content" role="main" class="py-4">
         @yield('content')
     </main>
 
@@ -971,4 +975,5 @@ footer {
 }
 </style>
 </html>
+
 

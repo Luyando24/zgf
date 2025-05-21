@@ -1,3 +1,28 @@
+/* Ensure text has sufficient color contrast against backgrounds */
+.text-primary {
+    /* Use colors that meet WCAG AA standard (4.5:1 for normal text, 3:1 for large text) */
+    color: #0056b3; /* Example of accessible blue */
+}
+
+/* Focus styles for keyboard navigation */
+*:focus {
+    outline: 3px solid #2563eb !important;
+    outline-offset: 2px;
+}
+
+/* Visually hidden elements (screen reader only) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 .primary-button{
     background-color: #61A534;
     color: white;
