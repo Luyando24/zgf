@@ -156,7 +156,7 @@ class PostController extends Controller
                 "name" => $settings->site_name ?? "Zambian Governance Foundation",
                 "logo" => [
                     "@type" => "ImageObject",
-                    "url" => $settings->site_logo ? Storage::url($settings->site_logo) : asset('images/logo.png')
+                    "url" => $settings && $settings->site_logo ? Storage::url($settings->site_logo) : asset('images/logo.png')
                 ]
             ]
         ];
@@ -187,4 +187,6 @@ class PostController extends Controller
         return json_encode($schema);
     }
 }
+
+
 

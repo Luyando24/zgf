@@ -69,7 +69,7 @@ class HomeController extends Controller
         $seoData = [
             'title' => $settings->meta_title ?? $settings->site_name ?? 'ZGF - Zambian Governance Foundation',
             'description' => $settings->meta_description ?? $settings->site_description ?? 'Zambian Governance Foundation - Empowering communities across Zambia',
-            'ogImage' => $settings->og_image ? \Storage::url($settings->og_image) : asset('images/logo.png'),
+            'ogImage' => $settings && $settings->og_image ? \Storage::url($settings->og_image) : asset('images/logo.png'),
             'schemaMarkup' => $this->getHomePageSchema($settings)
         ];
         
@@ -126,4 +126,5 @@ class HomeController extends Controller
         return json_encode($schema);
     }
 }
+
 

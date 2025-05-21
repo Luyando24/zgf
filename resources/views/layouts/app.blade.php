@@ -972,9 +972,3 @@ footer {
 </style>
 </html>
 
-
-
-
-
-
-
