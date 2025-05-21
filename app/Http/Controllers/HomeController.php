@@ -53,8 +53,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $heroes = Hero::where('status', 'published')->get();
-        $featuredPosts = Post::where('status', 'published')->latest()->take(3)->get();
+        $heroes = Hero::orderBy('id', 'desc')->take(3)->get();
+        $featuredPosts = Post::where('is_published', true)->latest()->take(3)->get();
         $initiatives = CommunityInitiative::where('status', 'published')->latest()->take(3)->get();
         $resources = Resource::where('status', 'published')->latest()->take(3)->get();
         $facebookPosts = $this->getRecentFacebookPosts();
@@ -83,5 +83,6 @@ class HomeController extends Controller
         return view('how-we-do-it', compact('teamMembers'));
     }
 }
+
 
 
