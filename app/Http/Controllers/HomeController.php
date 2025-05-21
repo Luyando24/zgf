@@ -22,7 +22,7 @@ class HomeController extends Controller
         $pageId = config('services.facebook.page_id');
         $accessToken = config('services.facebook.access_token');
         $baseUri = config('services.facebook.base_uri');
-        $limit = 4; // Number of posts to display
+        $limit = 4; // Ensure we're requesting 4 posts
         
         try {
             $response = Http::withOptions([
@@ -36,7 +36,10 @@ class HomeController extends Controller
             ]);
             
             if ($response->successful()) {
-                return collect($response->json()['data'] ?? []);
+                $posts = collect($response->json()['data'] ?? []);
+                // Debug the number of posts returned
+                \Log::info('Facebook posts fetched: ' . $posts->count());
+                return $posts;
             }
             
             return collect([]);
@@ -83,6 +86,8 @@ class HomeController extends Controller
         return view('how-we-do-it', compact('teamMembers'));
     }
 }
+
+
 
 
 
