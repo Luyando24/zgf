@@ -9,6 +9,11 @@ class Setting extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'site_name',
         'site_description',
@@ -30,9 +35,5 @@ class Setting extends Model
         'header_scripts',
         'footer_scripts',
     ];
-
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
 }
+
