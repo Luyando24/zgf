@@ -62,13 +62,32 @@
                                     <i class="bi bi-box-arrow-up-right me-1"></i>View Post
                                 </a>
                                 
-                                <div class="d-flex gap-2">
-                                    <button class="btn btn-sm btn-light rounded-circle" title="Share">
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-light rounded-circle" type="button" id="shareDropdown{{ $loop->index }}" data-bs-toggle="dropdown" aria-expanded="false" title="Share">
                                         <i class="bi bi-share"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-light rounded-circle" title="Save">
-                                        <i class="bi bi-bookmark"></i>
-                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="shareDropdown{{ $loop->index }}">
+                                        <li>
+                                            <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($post['permalink_url']) }}" target="_blank">
+                                                <i class="bi bi-facebook me-2 text-primary"></i>Facebook
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="https://twitter.com/intent/tweet?url={{ urlencode($post['permalink_url']) }}&text={{ urlencode(isset($post['message']) ? Str::limit($post['message'], 100) : 'Check out this post from ZGF') }}" target="_blank">
+                                                <i class="bi bi-twitter-x me-2"></i>Twitter
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="https://wa.me/?text={{ urlencode((isset($post['message']) ? Str::limit($post['message'], 100) . ' - ' : 'Check out this post from ZGF - ') . $post['permalink_url']) }}" target="_blank">
+                                                <i class="bi bi-whatsapp me-2 text-success"></i>WhatsApp
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="mailto:?subject=ZGF Facebook Post&body={{ urlencode((isset($post['message']) ? Str::limit($post['message'], 100) . ' - ' : 'Check out this post from ZGF - ') . $post['permalink_url']) }}">
+                                                <i class="bi bi-envelope me-2 text-secondary"></i>Email
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -154,4 +173,16 @@
         border-color: #e9ecef;
     }
 </style>
+@endpush
+
+@push('scripts')
+<script>
+    // Initialize all dropdowns
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+        var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl)
+        });
+    });
+</script>
 @endpush
