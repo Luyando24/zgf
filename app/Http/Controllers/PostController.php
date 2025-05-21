@@ -17,7 +17,37 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show', compact('post'));
+        // Get related posts based on categories if available
+        $relatedPosts = collect([]);
+        
+        if ($post->categories && $post->categories->count() > 0) {
+            $categoryIds = $post->categories->pluck('id');
+            
+            $relatedPosts = Post::where('id', '!=', $post->id)
+                ->where('is_published', true)
+                ->whereHas('categories', function($query) use ($categoryIds) {
+                    $query->whereIn('categories.id', $categoryIds);
+                })
+                ->latest()
+                ->take(2)
+                ->get();
+        }
+        
+        // If we don't have enough related posts by category, add some recent posts
+        if ($relatedPosts->count() < 2) {
+            $morePostsNeeded = 2 - $relatedPosts->count();
+            
+            $recentPosts = Post::where('id', '!=', $post->id)
+                ->where('is_published', true)
+                ->whereNotIn('id', $relatedPosts->pluck('id')->toArray())
+                ->latest()
+                ->take($morePostsNeeded)
+                ->get();
+                
+            $relatedPosts = $relatedPosts->concat($recentPosts);
+        }
+        
+        return view('posts.show', compact('post', 'relatedPosts'));
     }
 
     public function create()
@@ -67,6 +97,36 @@ class PostController extends Controller
     // display post details
     public function postDetails(Post $post)
     {
+        // Get related posts based on categories if available
+        $relatedPosts = collect([]);
+        
+        if ($post->categories && $post->categories->count() > 0) {
+            $categoryIds = $post->categories->pluck('id');
+            
+            $relatedPosts = Post::where('id', '!=', $post->id)
+                ->where('is_published', true)
+                ->whereHas('categories', function($query) use ($categoryIds) {
+                    $query->whereIn('categories.id', $categoryIds);
+                })
+                ->latest()
+                ->take(2)
+                ->get();
+        }
+        
+        // If we don't have enough related posts by category, add some recent posts
+        if ($relatedPosts->count() < 2) {
+            $morePostsNeeded = 2 - $relatedPosts->count();
+            
+            $recentPosts = Post::where('id', '!=', $post->id)
+                ->where('is_published', true)
+                ->whereNotIn('id', $relatedPosts->pluck('id')->toArray())
+                ->latest()
+                ->take($morePostsNeeded)
+                ->get();
+                
+            $relatedPosts = $relatedPosts->concat($recentPosts);
+        }
+        
         // SEO data
         $seoData = [
             'title' => $post->meta_title ?? $post->title,
@@ -77,7 +137,7 @@ class PostController extends Controller
             'schemaMarkup' => $this->getBlogPostSchema($post)
         ];
         
-        return view('posts.show', compact('post'))->with($seoData);
+        return view('posts.show', compact('post', 'relatedPosts'))->with($seoData);
     }
 
     //career page
@@ -187,6 +247,8 @@ class PostController extends Controller
         return json_encode($schema);
     }
 }
+
+
 
 
 
