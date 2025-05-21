@@ -90,7 +90,7 @@
                         <div class="row row-cols-1 row-cols-md-2 g-4">
                             @foreach($relatedPosts as $relatedPost)
                             <div class="col">
-                                <a href="{{ route('posts.show', $relatedPost->slug) }}" class="text-decoration-none text-dark">
+                                <a href="{{ route('post.show', $relatedPost->slug) }}" class="text-decoration-none text-dark">
                                     <div class="card h-100 shadow-sm border-0 rounded-4 university-card">
                                         @if($relatedPost->featured_image)
                                         <img src="{{ asset('storage/' . $relatedPost->featured_image) }}" 
@@ -145,7 +145,7 @@
                                     ->take(5)
                                     ->get() as $recentPost)
                                 <li class="mb-3 pb-3 border-bottom">
-                                    <a href="{{ route('posts.show', $recentPost->slug) }}" class="text-decoration-none">
+                                    <a href="{{ route('post.show', $recentPost->slug) }}" class="text-decoration-none">
                                         <div class="d-flex align-items-center">
                                             @if($recentPost->featured_image)
                                             <div class="flex-shrink-0 me-3">
@@ -280,6 +280,17 @@
     }
 </style>
 @endpush
+
+
+
+
+
+
+
+
+
+
+
 
 
 

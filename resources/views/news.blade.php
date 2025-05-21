@@ -15,7 +15,7 @@
         <div class="row g-4">
             @forelse ($posts as $post)
                 <div class="col-md-6 col-lg-4">
-                    <a href="{{ route('posts.show', $post->slug) }}" class="text-decoration-none text-dark">
+                    <a href="{{ route('post.show', $post->slug) }}" class="text-decoration-none text-dark">
                         <div class="card shadow-sm border-0 rounded-4 h-100 news-card">
                             @if($post->featured_image)
                                 <div class="card-img-container">
@@ -131,6 +131,11 @@
     }
 </style>
 @endpush
+
+
+
+
+
 
 
 
