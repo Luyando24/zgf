@@ -47,13 +47,6 @@
                                     <i class="bi bi-clock me-1"></i>
                                     {{ \Carbon\Carbon::parse($post['created_time'])->diffForHumans() }}
                                 </span>
-                                
-                                @if(isset($post['likes']) && count($post['likes']) > 0)
-                                    <span class="text-muted small">
-                                        <i class="bi bi-heart-fill text-danger me-1"></i>
-                                        {{ count($post['likes']) }}
-                                    </span>
-                                @endif
                             </div>
                             
                             <div class="card-text mb-3" style="max-height: 150px; overflow: hidden;">

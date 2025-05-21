@@ -44,32 +44,6 @@
                                     <img src="{{ $post['full_picture'] }}" class="img-fluid rounded-3" alt="Post Image">
                                 </div>
                             @endif
-                            
-                            <!-- Post Stats -->
-                            <div class="post-stats d-flex align-items-center justify-content-between text-muted small">
-                                @if(isset($post['likes']) && isset($post['likes']['summary']) && isset($post['likes']['summary']['total_count']))
-                                    <span>
-                                        <i class="bi bi-heart-fill text-danger me-1"></i>
-                                        {{ $post['likes']['summary']['total_count'] }}
-                                    </span>
-                                @else
-                                    <span></span>
-                                @endif
-                                
-                                @if(isset($post['comments']) && isset($post['comments']['summary']) && isset($post['comments']['summary']['total_count']))
-                                    <span>
-                                        <i class="bi bi-chat-fill text-primary me-1"></i>
-                                        {{ $post['comments']['summary']['total_count'] }}
-                                    </span>
-                                @endif
-                                
-                                @if(isset($post['shares']) && isset($post['shares']['count']))
-                                    <span>
-                                        <i class="bi bi-share-fill text-success me-1"></i>
-                                        {{ $post['shares']['count'] }}
-                                    </span>
-                                @endif
-                            </div>
                         </div>
                         
                         <!-- Card Footer -->
@@ -130,32 +104,6 @@
                                             <img src="{{ $post['full_picture'] }}" class="img-fluid rounded-3" alt="Post Image">
                                         </div>
                                     @endif
-                                    
-                                    <!-- Post Stats -->
-                                    <div class="post-stats d-flex align-items-center justify-content-between text-muted small">
-                                        @if(isset($post['likes']) && isset($post['likes']['summary']) && isset($post['likes']['summary']['total_count']))
-                                            <span>
-                                                <i class="bi bi-heart-fill text-danger me-1"></i>
-                                                {{ $post['likes']['summary']['total_count'] }}
-                                            </span>
-                                        @else
-                                            <span></span>
-                                        @endif
-                                        
-                                        @if(isset($post['comments']) && isset($post['comments']['summary']) && isset($post['comments']['summary']['total_count']))
-                                            <span>
-                                                <i class="bi bi-chat-fill text-primary me-1"></i>
-                                                {{ $post['comments']['summary']['total_count'] }}
-                                            </span>
-                                        @endif
-                                        
-                                        @if(isset($post['shares']) && isset($post['shares']['count']))
-                                            <span>
-                                                <i class="bi bi-share-fill text-success me-1"></i>
-                                                {{ $post['shares']['count'] }}
-                                            </span>
-                                        @endif
-                                    </div>
                                 </div>
                                 
                                 <!-- Card Footer -->
@@ -265,6 +213,7 @@
         }
     }
 </style>
+
 
 
 
