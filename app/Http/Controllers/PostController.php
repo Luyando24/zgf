@@ -181,10 +181,10 @@ class PostController extends Controller
             $schema["blogPosts"][] = [
                 "@type" => "BlogPosting",
                 "headline" => $post->title,
-                "url" => route('post.details', $post->slug),
+                "url" => route('post.show', $post->slug),
                 "datePublished" => $post->created_at->toIso8601String(),
                 "dateModified" => $post->updated_at->toIso8601String(),
-                "mainEntityOfPage" => route('post.details', $post->slug),
+                "mainEntityOfPage" => route('post.show', $post->slug),
                 "description" => Str::limit(strip_tags($post->content), 160)
             ];
         }
