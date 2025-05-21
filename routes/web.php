@@ -89,7 +89,7 @@ Route::get('/career/{career}', [PostController::class, 'careerDetails'])->name('
 Route::post('/job/{career:slug}/apply', [JobApplicationController::class, 'store'])->name('job.apply');
 
 // Facebook posts
-Route::get('/facebook-posts', [FacebookPostController::class, 'index']);
+Route::get('/facebook-posts', [FacebookPostController::class, 'index'])->name('facebook-posts');
 
 // Newsletter routes
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
@@ -130,6 +130,7 @@ Route::get('/donation/thank-you', [App\Http\Controllers\DonationController::clas
 Route::resource('resources', ResourceController::class);
 Route::get('/resources/{resource:slug}', [ResourceController::class, 'show'])->name('resources.show');
 Route::get('/resources/{resource:slug}/download', [ResourceController::class, 'download'])->name('resources.download');
+
 
 
 

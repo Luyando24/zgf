@@ -5,7 +5,7 @@
                 <h4 class="mb-0 heading">Newsflash</h4>
             </div>
             <div class="col-auto">
-                <h4 class="mb-0 heading"><a href="{{ url('facebook-posts') }}" class="text-decoration-none heading">All</a></h4>
+                <h4 class="mb-0 heading"><a href="{{ route('facebook-posts') }}" class="text-decoration-none heading">All</a></h4>
             </div>
         </div>
 
