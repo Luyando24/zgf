@@ -193,7 +193,15 @@
         }
         
         .post-image {
-            max-height: 150px;
+            max-height: 180px;
+            width: 100%;
+        }
+        
+        .post-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
         }
         
         .carousel-indicators {
@@ -213,6 +221,7 @@
         }
     }
 </style>
+
 
 
 

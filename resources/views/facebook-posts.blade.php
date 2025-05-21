@@ -1,45 +1,35 @@
 @extends('layouts.app')
 
-@section('title', 'Newsflash')
+@section('title', 'Facebook Posts')
 
 @section('content')
-<section class="py-5 bg-light">
-    <div class="container">
-        <!-- Header Section -->
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="fw-bold mb-3">ZGF Newsflash</h2>
-                <div class="d-flex align-items-center justify-content-center mb-3">
-                    <i class="bi bi-facebook fs-4 me-2 text-primary"></i>
-                    <p class="lead mb-0">Stay connected with our latest activities and announcements</p>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a href="https://facebook.com/ZambianGovernanceFoundation" target="_blank" class="btn btn-primary rounded-pill px-4">
-                        <i class="bi bi-facebook me-2"></i>Follow Us on Facebook
-                    </a>
-                </div>
-            </div>
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="mb-1">Facebook Posts</h2>
+            <p class="text-muted">Latest updates from our Facebook page</p>
         </div>
+    </div>
 
-        <!-- Posts Grid -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            @forelse ($posts as $post)
-                <div class="col">
-                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                        @if(isset($post['full_picture']))
-                            <div class="position-relative">
-                                <img src="{{ $post['full_picture'] }}" class="card-img-top" alt="Post Image" style="height: 220px; object-fit: cover;">
-                                <div class="position-absolute bottom-0 end-0 p-2">
-                                    <span class="badge bg-primary rounded-pill">
-                                        <i class="bi bi-facebook me-1"></i>Facebook
-                                    </span>
-                                </div>
+    <!-- Posts Grid -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @forelse ($posts as $post)
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                    @if(isset($post['full_picture']))
+                        <div class="position-relative facebook-post-image-container">
+                            <img src="{{ $post['full_picture'] }}" class="card-img-top facebook-post-image" alt="Post Image">
+                            <div class="position-absolute bottom-0 end-0 p-2">
+                                <span class="badge bg-primary rounded-pill">
+                                    <i class="bi bi-facebook me-1"></i>Facebook
+                                </span>
                             </div>
-                        @else
-                            <div class="card-img-top bg-primary bg-opacity-10 d-flex align-items-center justify-content-center" style="height: 120px;">
-                                <i class="bi bi-facebook text-primary" style="font-size: 3rem;"></i>
-                            </div>
-                        @endif
+                        </div>
+                    @else
+                        <div class="card-img-top bg-primary bg-opacity-10 d-flex align-items-center justify-content-center" style="height: 120px;">
+                            <i class="bi bi-facebook text-primary" style="font-size: 3rem;"></i>
+                        </div>
+                    @endif
                         
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -186,3 +176,23 @@
     });
 </script>
 @endpush
+
+<style>
+    .facebook-post-image-container {
+        height: 220px;
+        overflow: hidden;
+    }
+    
+    .facebook-post-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    @media (max-width: 767px) {
+        .facebook-post-image-container {
+            height: 200px;
+        }
+    }
+</style>
