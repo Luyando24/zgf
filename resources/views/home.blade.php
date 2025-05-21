@@ -7,6 +7,7 @@
 <x-stats />
 <x-about-section />
 <x-news :featuredPosts="$featuredPosts" />
+<x-recent-facebook-posts :posts="$facebookPosts" />
 <x-get-involved />
 <x-featured-initiatives :initiatives="$initiatives" />
 <x-resources :resources="$resources" />
