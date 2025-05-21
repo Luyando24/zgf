@@ -56,7 +56,7 @@ class HomeController extends Controller
         $heroes = Hero::orderBy('id', 'desc')->take(3)->get();
         $featuredPosts = Post::where('is_published', true)->latest()->take(3)->get();
         $initiatives = CommunityInitiative::where('status', 'published')->latest()->take(3)->get();
-        $resources = Resource::where('status', 'published')->latest()->take(3)->get();
+        $resources = Resource::orderBy('id', 'desc')->take(3)->get();
         $facebookPosts = $this->getRecentFacebookPosts();
         
         return view('home', compact('heroes', 'featuredPosts', 'initiatives', 'resources', 'facebookPosts'));
