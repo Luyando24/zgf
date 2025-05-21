@@ -131,6 +131,15 @@ Route::resource('resources', ResourceController::class);
 Route::get('/resources/{resource:slug}', [ResourceController::class, 'show'])->name('resources.show');
 Route::get('/resources/{resource:slug}/download', [ResourceController::class, 'download'])->name('resources.download');
 
+// Sitemap Routes
+Route::get('sitemap.xml', [App\Http\Controllers\SitemapController::class, 'index']);
+Route::get('sitemap/pages.xml', [App\Http\Controllers\SitemapController::class, 'pages']);
+Route::get('sitemap/posts.xml', [App\Http\Controllers\SitemapController::class, 'posts']);
+Route::get('sitemap/initiatives.xml', [App\Http\Controllers\SitemapController::class, 'initiatives']);
+Route::get('sitemap/careers.xml', [App\Http\Controllers\SitemapController::class, 'careers']);
+Route::get('sitemap/resources.xml', [App\Http\Controllers\SitemapController::class, 'resources']);
+
+
 
 
 

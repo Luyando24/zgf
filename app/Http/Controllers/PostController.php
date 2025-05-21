@@ -51,13 +51,33 @@ class PostController extends Controller
     public function newsPage()
     {
         $posts = Post::where('is_published', true)->latest()->paginate(10);
-        return view('news', compact('posts'));
+        
+        // SEO data
+        $settings = \App\Models\Setting::first();
+        $seoData = [
+            'title' => 'News & Updates - ' . ($settings->site_name ?? 'ZGF'),
+            'description' => 'Latest news and updates from Zambian Governance Foundation',
+            'ogType' => 'blog',
+            'schemaMarkup' => $this->getBlogListingSchema($posts)
+        ];
+        
+        return view('news', compact('posts'))->with($seoData);
     }
 
     // display post details
     public function postDetails(Post $post)
     {
-        return view('posts.show', compact('post'));
+        // SEO data
+        $seoData = [
+            'title' => $post->meta_title ?? $post->title,
+            'description' => $post->meta_description ?? Str::limit(strip_tags($post->content), 160),
+            'keywords' => $post->meta_keywords ?? null,
+            'ogImage' => $post->featured_image ? Storage::url($post->featured_image) : null,
+            'ogType' => 'article',
+            'schemaMarkup' => $this->getBlogPostSchema($post)
+        ];
+        
+        return view('posts.show', compact('post'))->with($seoData);
     }
 
     //career page
@@ -83,5 +103,88 @@ class PostController extends Controller
         ]);
     }
     
+    /**
+     * Generate schema markup for blog listing
+     */
+    private function getBlogListingSchema($posts)
+    {
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "Blog",
+            "name" => "ZGF News & Updates",
+            "url" => route('news'),
+            "description" => "Latest news and updates from Zambian Governance Foundation",
+            "blogPosts" => []
+        ];
+        
+        foreach ($posts->take(10) as $post) {
+            $schema["blogPosts"][] = [
+                "@type" => "BlogPosting",
+                "headline" => $post->title,
+                "url" => route('post.details', $post->slug),
+                "datePublished" => $post->created_at->toIso8601String(),
+                "dateModified" => $post->updated_at->toIso8601String(),
+                "mainEntityOfPage" => route('post.details', $post->slug),
+                "description" => Str::limit(strip_tags($post->content), 160)
+            ];
+        }
+        
+        return json_encode($schema);
+    }
+
+    /**
+     * Generate schema markup for a blog post
+     */
+    private function getBlogPostSchema($post)
+    {
+        $settings = \App\Models\Setting::first();
+        
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "BlogPosting",
+            "headline" => $post->title,
+            "name" => $post->title,
+            "description" => $post->meta_description ?? Str::limit(strip_tags($post->content), 160),
+            "datePublished" => $post->created_at->toIso8601String(),
+            "dateModified" => $post->updated_at->toIso8601String(),
+            "mainEntityOfPage" => [
+                "@type" => "WebPage",
+                "@id" => route('post.details', $post->slug)
+            ],
+            "publisher" => [
+                "@type" => "Organization",
+                "name" => $settings->site_name ?? "Zambian Governance Foundation",
+                "logo" => [
+                    "@type" => "ImageObject",
+                    "url" => $settings->site_logo ? Storage::url($settings->site_logo) : asset('images/logo.png')
+                ]
+            ]
+        ];
+        
+        // Add featured image if available
+        if ($post->featured_image) {
+            $schema["image"] = [
+                "@type" => "ImageObject",
+                "url" => Storage::url($post->featured_image),
+                "width" => "1200",
+                "height" => "630"
+            ];
+        }
+        
+        // Add custom schema markup if enabled and provided
+        if ($post->enable_schema_markup && $post->schema_markup) {
+            try {
+                $customSchema = json_decode($post->schema_markup, true);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    // Merge custom schema with default schema
+                    $schema = array_merge($schema, $customSchema);
+                }
+            } catch (\Exception $e) {
+                // If there's an error parsing the custom schema, just use the default
+            }
+        }
+        
+        return json_encode($schema);
+    }
 }
 
